@@ -1,0 +1,7 @@
+dependencies {
+    // Unit tests
+    testImplementation "junit:junit:${versions.junit}"
+    androidTestImplementation "androidx.test.ext:junit:${versions.androidxJunit}"
+    androidTestImplementation "androidx.test.espresso:espresso-core:${versions.androidxEspresso}"
+    androidTestImplementation "androidx.annotation:annotation:${versions.androidxAnnotation}"
+}
