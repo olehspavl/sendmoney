@@ -4,16 +4,14 @@ plugins {
 }
 
 apply from: "$rootProject.rootDir/dependencies_test.gradle"
+apply from: "$rootProject.rootDir/dependencies_shared.gradle"
 
 android {
-    compileSdkVersion 29
-
+    compileSdkVersion sdk.target
     defaultConfig {
-        applicationId "com.sendmoney"
-        minSdkVersion 24
-        targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion sdk.min
+        targetSdkVersion sdk.target
+        versionName names.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -32,6 +30,4 @@ android {
 
 dependencies {
     implementation project(":app")
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin"
-    implementation 'androidx.core:core-ktx:1.3.0'
 }

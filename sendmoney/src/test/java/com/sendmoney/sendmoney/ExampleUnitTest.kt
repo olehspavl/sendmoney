@@ -1,4 +1,4 @@
-package com.sendmoney
+package com.sendmoney.sendmoney
 
 import org.junit.Test
 

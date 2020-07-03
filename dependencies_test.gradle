@@ -4,4 +4,7 @@ dependencies {
     androidTestImplementation "androidx.test.ext:junit:${versions.androidxJunit}"
     androidTestImplementation "androidx.test.espresso:espresso-core:${versions.androidxEspresso}"
     androidTestImplementation "androidx.annotation:annotation:${versions.androidxAnnotation}"
+
+    // Testing Navigation
+    androidTestImplementation "androidx.navigation:navigation-testing:${versions.navVersion}"
 }
