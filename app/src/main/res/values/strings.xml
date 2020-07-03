@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Send Money</string>
     <string name="title_sendmoney">Send Money</string>
+    <string name="feature_sendmoney_mock_text">MainFragment</string>
 </resources>

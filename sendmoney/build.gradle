@@ -7,6 +7,8 @@ apply from: "$rootProject.rootDir/dependencies_test.gradle"
 apply from: "$rootProject.rootDir/dependencies_shared.gradle"
 
 android {
+    resourcePrefix 'feature_sendmoney_'
+
     compileSdkVersion sdk.target
     defaultConfig {
         minSdkVersion sdk.min

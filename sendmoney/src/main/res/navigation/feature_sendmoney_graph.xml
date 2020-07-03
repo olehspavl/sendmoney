@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@id/feature_sendmoney_graph"
+    app:startDestination="@id/feature_sendmoney_mainfragment">
+
+    <fragment
+        android:id="@+id/feature_sendmoney_mainfragment"
+        android:name="com.sendmoney.sendmoney.main.MainFragment"
+        android:label="MainFragment"
+        tools:layout="@layout/feature_sendmoney_main_fragment"/>
+</navigation>
