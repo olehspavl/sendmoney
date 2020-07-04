@@ -23,8 +23,4 @@ class MainFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
     }
-
-    companion object {
-        fun newInstance() = MainFragment()
-    }
 }

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="opacityEmphasisHigh" format="float" type="dimen">0.87</item>
+    <item name="opacityEmphasisDisabled" format="float" type="dimen">0.38</item>
+</resources>
