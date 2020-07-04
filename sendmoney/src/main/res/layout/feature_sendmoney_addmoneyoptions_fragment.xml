@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".main.MainFragment">
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/padding24"
+        android:layout_marginTop="@dimen/padding32"
+        android:layout_marginEnd="@dimen/padding24"
+        android:text="@string/feature_sendmoney_add_money_option_desc"
+        android:textSize="@dimen/textSize20"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/topDivider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="@dimen/padding24"
+        android:layout_marginTop="@dimen/padding32"
+        android:layout_marginEnd="@dimen/padding24"
+        android:background="@color/grey_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/description" />
+
+    <LinearLayout
+        android:id="@+id/debitCreditCard"
+        android:layout_width="0dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="@dimen/padding24"
+        android:layout_marginEnd="@dimen/padding24"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:orientation="horizontal"
+        android:padding="@dimen/padding18"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topDivider">
+
+        <ImageView
+            android:layout_width="@dimen/padding42"
+            android:layout_height="@dimen/padding42"
+            android:layout_gravity="center_vertical"
+            android:contentDescription="@null"
+            android:src="@drawable/feature_sendmoney_ic_credit_card_black_24" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/padding18"
+            android:layout_weight="1"
+            android:text="@string/feature_sendmoney_option_debit_credit_card"
+            android:textSize="@dimen/textSize16"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="@dimen/padding32"
+            android:layout_height="@dimen/padding32"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/padding18"
+            android:contentDescription="@null"
+            android:src="@drawable/feature_sendmoney_ic_chevron_right_black_24" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/bottomDivider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="@dimen/padding24"
+        android:layout_marginEnd="@dimen/padding24"
+        android:background="@color/grey_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/debitCreditCard" />
+</androidx.constraintlayout.widget.ConstraintLayout>

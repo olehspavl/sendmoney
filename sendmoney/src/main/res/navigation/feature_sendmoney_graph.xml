@@ -9,5 +9,15 @@
         android:id="@+id/feature_sendmoney_mainfragment"
         android:name="com.sendmoney.sendmoney.main.MainFragment"
         android:label="MainFragment"
-        tools:layout="@layout/feature_sendmoney_main_fragment"/>
+        tools:layout="@layout/feature_sendmoney_main_fragment">
+        <action
+            android:id="@+id/to_options"
+            app:destination="@id/feature_sendmoney_addmoneyoptionsfragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/feature_sendmoney_addmoneyoptionsfragment"
+        android:name="com.sendmoney.sendmoney.addmoneyoptions.AddMoneyOptionsFragment"
+        android:label="AddMoneyOptionsFragment"
+        tools:layout="@layout/feature_sendmoney_addmoneyoptions_fragment" />
 </navigation>

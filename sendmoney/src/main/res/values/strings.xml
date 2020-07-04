@@ -2,4 +2,6 @@
 <resources>
     <string name="feature_sendmoney_add">Add</string>
     <string name="feature_sendmoney_mock_text">MainFragment</string>
+    <string name="feature_sendmoney_add_money_option_desc">Select how to add money</string>
+    <string name="feature_sendmoney_option_debit_credit_card">Debit or credit card</string>
 </resources>
