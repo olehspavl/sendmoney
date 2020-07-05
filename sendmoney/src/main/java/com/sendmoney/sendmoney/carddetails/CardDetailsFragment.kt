@@ -51,6 +51,11 @@ class CardDetailsFragment : Fragment(R.layout.feature_sendmoney_carddetails_frag
         binding.cardNumber.doOnTextChanged { text, _, _, _ ->
             viewModel.onCardNumberChanged(text)
         }
-        binding.cardNumber.addTextChangedListener(SpaceWatcher(SoftReference(binding.cardNumber)))
+        binding.cardNumber.apply {
+            addTextChangedListener(NumberSpaceWatcher(SoftReference(this)))
+        }
+        binding.cardDate.apply {
+            addTextChangedListener(DateSplashWatcher(SoftReference(this)))
+        }
     }
 }
