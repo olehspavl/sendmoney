@@ -9,6 +9,7 @@ class CardDetailsViewModel : ViewModel() {
 
     val cardNumberState = MutableLiveData<EditTextState>()
     val cardDateState = MutableLiveData<EditTextState>()
+    val cardCvvState = MutableLiveData<EditTextState>()
 
     fun onCardNumberChanged(text: CharSequence?) {
         if (text?.length == CARD_NUMBER_LENGTH) validateCardNumber(text)
@@ -24,6 +25,12 @@ class CardDetailsViewModel : ViewModel() {
             else EditTextState.Error(R.string.feature_sendmoney_card_number_error)
     }
 
+    fun validateCardCvv(text: CharSequence) {
+        cardCvvState.value =
+            if (text.length == CARD_CVV_LENGTH) EditTextState.Neutral
+            else EditTextState.Error(R.string.feature_sendmoney_card_cvv_error)
+    }
+
     fun validateCardDate(text: CharSequence) {
         var valid = false
         if (text.length == CARD_DATE_LENGTH) {
@@ -31,7 +38,7 @@ class CardDetailsViewModel : ViewModel() {
             val currentYear = Calendar.getInstance().get(Calendar.YEAR) % 100
 
             val month = rawText.substring(0..1).toInt()
-            val year = rawText.substring(3).toInt()
+            val year = rawText.substring(2).toInt()
 
             valid = (month in 1..12) and (year >= currentYear)
             if (valid && year == currentYear) {
@@ -47,6 +54,7 @@ class CardDetailsViewModel : ViewModel() {
 
     companion object {
         private const val CARD_NUMBER_LENGTH = 19
+        private const val CARD_CVV_LENGTH = 3
         private const val CARD_DATE_LENGTH = 5
     }
 }

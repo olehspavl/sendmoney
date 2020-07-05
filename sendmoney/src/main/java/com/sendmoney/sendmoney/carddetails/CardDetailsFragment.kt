@@ -47,6 +47,13 @@ class CardDetailsFragment : Fragment(R.layout.feature_sendmoney_carddetails_frag
                     getString(it.messageRes)
             }
         })
+        viewModel.cardCvvState.observe(viewLifecycleOwner, Observer {
+            when (it) {
+                EditTextState.Neutral -> binding.cardCvvLayout.error = ""
+                is EditTextState.Error -> binding.cardCvvLayout.error =
+                    getString(it.messageRes)
+            }
+        })
     }
 
     private fun loadData() = Unit
@@ -55,18 +62,29 @@ class CardDetailsFragment : Fragment(R.layout.feature_sendmoney_carddetails_frag
         binding.action.setOnClickListener {
             viewModel.validateCardNumber(binding.cardNumber.text.toString())
             viewModel.validateCardDate(binding.cardDate.text.toString())
+            viewModel.validateCardCvv(binding.cardCvv.text.toString())
         }
-        binding.cardNumber.doAfterTextChanged { text ->
+        val numberValidation = binding.cardNumber.doAfterTextChanged { text ->
             viewModel.onCardNumberChanged(text)
         }
         binding.cardNumber.apply {
-            addTextChangedListener(NumberSpaceWatcher(SoftReference(this)))
+            addTextChangedListener(
+                NumberSpaceWatcher(
+                    SoftReference(this),
+                    SoftReference(listOf(numberValidation))
+                )
+            )
+        }
+        val dateValidation = binding.cardDate.doAfterTextChanged { text ->
+            viewModel.onCardDateChanged(text)
         }
         binding.cardDate.apply {
-            addTextChangedListener(DateSplashWatcher(SoftReference(this)))
-        }
-        binding.cardDate.doAfterTextChanged { text ->
-            viewModel.onCardDateChanged(text)
+            addTextChangedListener(
+                DateSplashWatcher(
+                    SoftReference(this),
+                    SoftReference(listOf(dateValidation))
+                )
+            )
         }
     }
 }

@@ -8,7 +8,8 @@ import java.lang.ref.SoftReference
 abstract class SpecialSymbolWatcher(
     private val symbol: Char,
     private val blockSize: Int,
-    private val editText: SoftReference<EditText>
+    private val editText: SoftReference<EditText>,
+    private val watchers: SoftReference<List<TextWatcher>>
 ) : TextWatcher {
     private var pointerPosition = 0
     private var erase = false
@@ -38,9 +39,15 @@ abstract class SpecialSymbolWatcher(
         pointerPosition += input?.let { formatted.length - input.length } ?: 0
         editText.get()?.run {
             removeTextChangedListener(this@SpecialSymbolWatcher)
+            watchers.get()?.forEach {
+                removeTextChangedListener(it)
+            }
             setText(formatted)
             setSelection(if (pointerPosition >= 0) pointerPosition else 0)
             addTextChangedListener(this@SpecialSymbolWatcher)
+            watchers.get()?.forEach {
+                addTextChangedListener(it)
+            }
         }
     }
 
@@ -61,8 +68,9 @@ abstract class SpecialSymbolWatcher(
 }
 
 class DateSplashWatcher(
-    editText: SoftReference<EditText>
-) : SpecialSymbolWatcher(SPECIAL_SYMBOL, BLOCK_SIZE, editText) {
+    editText: SoftReference<EditText>,
+    watchers: SoftReference<List<TextWatcher>>
+    ) : SpecialSymbolWatcher(SPECIAL_SYMBOL, BLOCK_SIZE, editText, watchers) {
     companion object {
         private const val SPECIAL_SYMBOL = '/'
         const val specialSymbol = SPECIAL_SYMBOL.toString()
@@ -71,8 +79,9 @@ class DateSplashWatcher(
 }
 
 class NumberSpaceWatcher(
-    editText: SoftReference<EditText>
-) : SpecialSymbolWatcher(SPECIAL_SYMBOL, BLOCK_SIZE, editText) {
+    editText: SoftReference<EditText>,
+    watchers: SoftReference<List<TextWatcher>>
+) : SpecialSymbolWatcher(SPECIAL_SYMBOL, BLOCK_SIZE, editText, watchers) {
     companion object {
         private const val SPECIAL_SYMBOL = ' '
         private const val BLOCK_SIZE = 4
