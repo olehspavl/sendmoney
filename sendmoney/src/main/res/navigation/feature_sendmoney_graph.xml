@@ -52,5 +52,19 @@
         android:id="@+id/feature_sendmoney_verificationfragment"
         android:name="com.sendmoney.sendmoney.verification.VerificationFragment"
         android:label="VerificationFragment"
-        tools:layout="@layout/feature_sendmoney_verification_fragment" />
+        tools:layout="@layout/feature_sendmoney_verification_fragment" >
+        <action
+            android:id="@+id/to_success"
+            app:destination="@id/feature_sendmoney_successfragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/feature_sendmoney_successfragment"
+        android:name="com.sendmoney.sendmoney.success.SuccessFragment"
+        android:label="SuccessFragment" >
+        <action
+            android:id="@+id/to_main"
+            app:destination="@id/feature_sendmoney_mainfragment"
+            app:popUpTo="@id/feature_sendmoney_mainfragment" />
+    </fragment>
 </navigation>

@@ -3,6 +3,7 @@ package com.sendmoney.sendmoney.verification
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.sendmoney.sendmoney.R
 import com.sendmoney.sendmoney.databinding.FeatureSendmoneyVerificationFragmentBinding
 import com.sendmoney.sendmoney.loadModule
@@ -23,6 +24,8 @@ class VerificationFragment : Fragment(R.layout.feature_sendmoney_verification_fr
     }
 
     private fun initUI() {
-        binding.action.setOnClickListener {}
+        binding.action.setOnClickListener {
+            findNavController().navigate(VerificationFragmentDirections.toSuccess())
+        }
     }
 }

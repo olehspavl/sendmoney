@@ -26,4 +26,12 @@
     <string name="feature_sendmoney_amount_destination_name_mock">Witty GBP</string>
     <string name="feature_sendmoney_amount_action">Add money</string>
     <string name="feature_sendmoney_verification_action">Verify</string>
+    <string name="feature_sendmoney_successful_title">Payment successful</string>
+    <string name="feature_sendmoney_successful_type">Type</string>
+    <string name="feature_sendmoney_successful_type_mock">Card</string>
+    <string name="feature_sendmoney_successful_number">Card number</string>
+    <string name="feature_sendmoney_successful_date">Expiry date</string>
+    <string name="feature_sendmoney_successful_cvv">CVV</string>
+    <string name="feature_sendmoney_successful_amount">Amount</string>
+    <string name="feature_sendmoney_successful_action">Return home</string>
 </resources>
