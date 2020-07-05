@@ -6,9 +6,15 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.sendmoney.sendmoney.R
 import com.sendmoney.sendmoney.databinding.FeatureSendmoneyAddmoneyoptionsFragmentBinding
+import com.sendmoney.sendmoney.loadModule
 
 class AddMoneyOptionsFragment : Fragment(R.layout.feature_sendmoney_addmoneyoptions_fragment) {
     private lateinit var binding: FeatureSendmoneyAddmoneyoptionsFragmentBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        loadModule()
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

@@ -9,11 +9,17 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.sendmoney.sendmoney.R
 import com.sendmoney.sendmoney.databinding.FeatureSendmoneyMainFragmentBinding
+import com.sendmoney.sendmoney.loadModule
 
 class MainFragment : Fragment(R.layout.feature_sendmoney_main_fragment) {
 
     private lateinit var viewModel: MainViewModel
     private lateinit var binding: FeatureSendmoneyMainFragmentBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        loadModule()
+    }
 
     /*override fun onCreateView(
         inflater: LayoutInflater,

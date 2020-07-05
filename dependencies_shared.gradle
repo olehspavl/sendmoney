@@ -10,9 +10,13 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}"
     implementation "org.jetbrains.kotlin:kotlin-reflect:${versions.kotlin}"
 
-    // Kotlin
+    // Navigation
     implementation "androidx.navigation:navigation-fragment-ktx:${versions.navVersion}"
     implementation "androidx.navigation:navigation-ui-ktx:${versions.navVersion}"
+
+    // Dependency Injection
+    implementation "org.koin:koin-androidx-scope:${versions.koin}"
+    implementation "org.koin:koin-androidx-viewmodel:${versions.koin}"
 
     // Dynamic Feature Module Support
     implementation "androidx.navigation:navigation-dynamic-features-fragment:${versions.navVersion}"
