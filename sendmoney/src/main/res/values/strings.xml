@@ -10,4 +10,8 @@
     <string name="feature_sendmoney_card_date_hint">MM/YY</string>
     <string name="feature_sendmoney_card_cvv_hint">CVV</string>
     <string name="feature_sendmoney_card_action">Continue</string>
+
+    <string name="feature_sendmoney_card_number_error">Please enter a valid card number</string>
+    <string name="feature_sendmoney_card_date_error">Enter correct date</string>
+    <string name="feature_sendmoney_card_cvv_error">Please enter full details</string>
 </resources>

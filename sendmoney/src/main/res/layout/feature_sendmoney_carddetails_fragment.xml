@@ -59,7 +59,7 @@
         app:layout_constraintTop_toBottomOf="@id/description2">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/cardNumber2"
+            android:id="@+id/cardNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:digits="12345 67890"
