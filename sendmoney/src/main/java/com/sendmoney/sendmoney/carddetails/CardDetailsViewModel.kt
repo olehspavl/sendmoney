@@ -10,6 +10,7 @@ class CardDetailsViewModel : ViewModel() {
     val cardNumberState = MutableLiveData<EditTextState>()
     val cardDateState = MutableLiveData<EditTextState>()
     val cardCvvState = MutableLiveData<EditTextState>()
+    val screenState = MutableLiveData<CardDetailsState>()
 
     fun onCardNumberChanged(text: CharSequence?) {
         if (text?.length == CARD_NUMBER_LENGTH) validateCardNumber(text)
@@ -50,6 +51,18 @@ class CardDetailsViewModel : ViewModel() {
         cardDateState.value =
             if (valid) EditTextState.Neutral
             else EditTextState.Error(R.string.feature_sendmoney_card_date_error)
+    }
+
+    fun validateAll(number: String, date: String, cvv: String) {
+        validateCardNumber(number)
+        validateCardDate(date)
+        validateCardCvv(cvv)
+        val isNumberNotValid = cardNumberState.value is EditTextState.Error
+        val isDateNotValid = cardDateState.value is EditTextState.Error
+        val isCvvNotValid = cardCvvState.value is EditTextState.Error
+        if (!isNumberNotValid && !isDateNotValid && !isCvvNotValid) {
+            screenState.value = CardDetailsState.NextScreen
+        }
     }
 
     companion object {

@@ -23,6 +23,7 @@ class CardDetailsFragment : Fragment(R.layout.feature_sendmoney_carddetails_frag
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         loadModule()
+        initEvents()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -30,6 +31,19 @@ class CardDetailsFragment : Fragment(R.layout.feature_sendmoney_carddetails_frag
         loadData()
         initUI()
         initObservers()
+    }
+
+    private fun initEvents() {
+        viewModel.screenState.observe(this, Observer {
+            when (it) {
+                CardDetailsState.NextScreen -> {
+                    moduleViewModel.cardNumber = binding.cardNumber.text.toString()
+                    moduleViewModel.cardDate = binding.cardDate.text.toString()
+                    moduleViewModel.cardCvv = binding.cardCvv.text.toString()
+                    navigateNext()
+                }
+            }
+        })
     }
 
     private fun initObservers() {
@@ -56,13 +70,19 @@ class CardDetailsFragment : Fragment(R.layout.feature_sendmoney_carddetails_frag
         })
     }
 
-    private fun loadData() = Unit
+    private fun loadData() {
+        moduleViewModel.cardNumber?.let { binding.cardNumber.setText(it) }
+        moduleViewModel.cardDate?.let { binding.cardDate.setText(it) }
+        moduleViewModel.cardCvv?.let { binding.cardCvv.setText(it) }
+    }
 
     private fun initUI() {
         binding.action.setOnClickListener {
-            viewModel.validateCardNumber(binding.cardNumber.text.toString())
-            viewModel.validateCardDate(binding.cardDate.text.toString())
-            viewModel.validateCardCvv(binding.cardCvv.text.toString())
+            viewModel.validateAll(
+                binding.cardNumber.text.toString(),
+                binding.cardDate.text.toString(),
+                binding.cardCvv.text.toString()
+            )
         }
         val numberValidation = binding.cardNumber.doAfterTextChanged { text ->
             viewModel.onCardNumberChanged(text)
@@ -87,4 +107,6 @@ class CardDetailsFragment : Fragment(R.layout.feature_sendmoney_carddetails_frag
             )
         }
     }
+
+    private fun navigateNext() = Unit
 }

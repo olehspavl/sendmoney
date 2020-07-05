@@ -112,7 +112,7 @@
             android:layout_height="wrap_content"
             android:digits="1234567890"
             android:imeOptions="actionDone"
-            android:inputType="date"
+            android:inputType="numberPassword"
             android:lines="1"
             android:maxLength="3" />
     </com.google.android.material.textfield.TextInputLayout>
