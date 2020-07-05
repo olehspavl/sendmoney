@@ -26,7 +26,7 @@ class MainFragment : Fragment(R.layout.feature_sendmoney_main_fragment) {
 
     private fun initUI() {
         binding.action.setOnClickListener {
-            findNavController().navigate(MainFragmentDirections.toAmount())
+            findNavController().navigate(MainFragmentDirections.toOptions())
         }
     }
 }

@@ -13,9 +13,6 @@
         <action
             android:id="@+id/to_options"
             app:destination="@id/feature_sendmoney_addmoneyoptionsfragment" />
-        <action
-            android:id="@+id/to_amount"
-            app:destination="@id/feature_sendmoney_amountfragment" />
     </fragment>
 
     <fragment

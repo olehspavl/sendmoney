@@ -10,7 +10,6 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:fillViewport="true"
-        android:nestedScrollingEnabled="true"
         android:overScrollMode="always"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -193,7 +192,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_margin="@dimen/padding8"
-            android:text="@string/feature_sendmoney_amount_action"
-            android:enabled="false"/>
+            android:enabled="false"
+            android:text="@string/feature_sendmoney_amount_action" />
     </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

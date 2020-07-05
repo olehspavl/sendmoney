@@ -6,122 +6,149 @@
     android:layout_height="match_parent"
     tools:context=".carddetails.CardDetailsFragment">
 
-    <TextView
-        android:id="@+id/description1"
+    <ScrollView
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/padding24"
-        android:layout_marginTop="@dimen/padding32"
-        android:layout_marginEnd="@dimen/padding24"
-        android:text="@string/feature_sendmoney_card_desc1"
-        android:textSize="@dimen/textSize20"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/description2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/padding24"
-        android:layout_marginTop="@dimen/padding24"
-        android:layout_marginEnd="@dimen/padding24"
-        android:text="@string/feature_sendmoney_card_desc2"
-        android:textSize="@dimen/textSize20"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/description1" />
-
-    <ImageView
-        android:id="@+id/cardType"
-        android:layout_width="@dimen/padding42"
-        android:layout_height="@dimen/padding42"
-        android:layout_gravity="center_vertical"
-        android:layout_marginStart="@dimen/padding24"
-        android:contentDescription="@null"
-        android:src="@drawable/feature_sendmoney_ic_credit_card_black_24"
-        app:layout_constraintBottom_toBottomOf="@id/cardNumberLayout"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/cardNumberLayout" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/cardNumberLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/padding8"
-        android:layout_marginTop="@dimen/padding18"
-        android:layout_marginEnd="@dimen/padding24"
-        android:hint="@string/feature_sendmoney_card_number_hint"
-        app:boxBackgroundColor="@color/transparent"
-        app:errorEnabled="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/cardType"
-        app:layout_constraintTop_toBottomOf="@id/description2">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/cardNumber"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:digits="12345 67890"
-            android:imeOptions="actionNext"
-            android:inputType="number"
-            android:lines="1"
-            android:maxLength="19" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/cardDateLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/padding24"
-        android:hint="@string/feature_sendmoney_card_date_hint"
-        app:boxBackgroundColor="@color/transparent"
-        app:errorEnabled="true"
-        app:layout_constraintEnd_toStartOf="@id/cardCvvLayout"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardNumberLayout">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/cardDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:digits="1234567890"
-            android:imeOptions="actionNext"
-            android:inputType="date"
-            android:lines="1"
-            android:maxLength="5" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/cardCvvLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/padding24"
-        android:layout_marginEnd="@dimen/padding24"
-        android:hint="@string/feature_sendmoney_card_cvv_hint"
-        app:boxBackgroundColor="@color/transparent"
-        app:errorEnabled="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/cardDateLayout"
-        app:layout_constraintTop_toTopOf="@id/cardDateLayout">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/cardCvv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:digits="1234567890"
-            android:imeOptions="actionDone"
-            android:inputType="numberPassword"
-            android:lines="1"
-            android:maxLength="3" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/action"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/padding24"
-        android:text="@string/feature_sendmoney_card_action"
+        android:layout_height="0dp"
+        android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/description1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/padding24"
+                android:layout_marginTop="@dimen/padding32"
+                android:layout_marginEnd="@dimen/padding24"
+                android:text="@string/feature_sendmoney_card_desc1"
+                android:textSize="@dimen/textSize20"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/description2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/padding24"
+                android:layout_marginTop="@dimen/padding24"
+                android:layout_marginEnd="@dimen/padding24"
+                android:text="@string/feature_sendmoney_card_desc2"
+                android:textSize="@dimen/textSize20"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/description1" />
+
+            <ImageView
+                android:id="@+id/cardType"
+                android:layout_width="@dimen/padding42"
+                android:layout_height="@dimen/padding42"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/padding24"
+                android:contentDescription="@null"
+                android:src="@drawable/feature_sendmoney_ic_credit_card_black_24"
+                app:layout_constraintBottom_toBottomOf="@id/cardNumberLayout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/cardNumberLayout" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/cardNumberLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/padding8"
+                android:layout_marginTop="@dimen/padding18"
+                android:layout_marginEnd="@dimen/padding24"
+                android:hint="@string/feature_sendmoney_card_number_hint"
+                app:boxBackgroundColor="@color/transparent"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/cardType"
+                app:layout_constraintTop_toBottomOf="@id/description2">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/cardNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:digits="12345 67890"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:lines="1"
+                    android:maxLength="19" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/cardDateLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/padding24"
+                android:hint="@string/feature_sendmoney_card_date_hint"
+                app:boxBackgroundColor="@color/transparent"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toStartOf="@id/cardCvvLayout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cardNumberLayout">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/cardDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:digits="1234567890"
+                    android:imeOptions="actionNext"
+                    android:inputType="date"
+                    android:lines="1"
+                    android:maxLength="5" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/cardCvvLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/padding24"
+                android:layout_marginEnd="@dimen/padding24"
+                android:hint="@string/feature_sendmoney_card_cvv_hint"
+                app:boxBackgroundColor="@color/transparent"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/cardDateLayout"
+                app:layout_constraintTop_toTopOf="@id/cardDateLayout">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/cardCvv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:digits="1234567890"
+                    android:imeOptions="actionDone"
+                    android:inputType="numberPassword"
+                    android:lines="1"
+                    android:maxLength="3" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/grey_light"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/action"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_margin="@dimen/padding8"
+            android:text="@string/feature_sendmoney_card_action"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
