@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".amount.AmountFragment">
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:nestedScrollingEnabled="true"
+        android:overScrollMode="always"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/padding24"
+                android:layout_marginTop="@dimen/padding32"
+                android:layout_marginEnd="@dimen/padding24"
+                android:text="@string/feature_sendmoney_amount_desc"
+                android:textSize="@dimen/textSize20"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/amount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/padding24"
+                android:layout_marginTop="@dimen/padding24"
+                android:layout_marginEnd="@dimen/padding24"
+                android:digits="1234567890"
+                android:gravity="end"
+                android:hint="@string/feature_sendmoney_amount_hint"
+                android:imeOptions="actionDone"
+                android:inputType="number"
+                android:lines="1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/description" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/feature_sendmoney_amount_currency"
+                android:textSize="@dimen/textSize20"
+                app:layout_constraintBaseline_toBaselineOf="@id/amount"
+                app:layout_constraintStart_toStartOf="@id/amount" />
+
+            <TextView
+                android:id="@+id/subtitle1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/padding24"
+                android:layout_marginTop="@dimen/padding32"
+                android:layout_marginEnd="@dimen/padding24"
+                android:text="@string/feature_sendmoney_amount_subtitle1"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/amount" />
+
+            <ImageView
+                android:id="@+id/cardIcon"
+                android:layout_width="@dimen/padding42"
+                android:layout_height="@dimen/padding42"
+                android:layout_marginStart="@dimen/padding24"
+                android:contentDescription="@null"
+                android:src="@drawable/feature_sendmoney_ic_credit_card_black_24"
+                app:layout_constraintBottom_toBottomOf="@id/changeCard"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/changeCard" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/changeCard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding8"
+                android:layout_marginEnd="@dimen/padding24"
+                android:text="@string/feature_sendmoney_amount_change"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/subtitle1" />
+
+            <TextView
+                android:id="@+id/bankName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/padding8"
+                android:layout_marginEnd="@dimen/padding8"
+                android:text="@string/feature_sendmoney_amount_bank_name_mock"
+                android:textSize="@dimen/textSize16"
+                app:layout_constraintEnd_toStartOf="@id/changeCard"
+                app:layout_constraintStart_toEndOf="@id/cardIcon"
+                app:layout_constraintTop_toTopOf="@id/changeCard" />
+
+            <TextView
+                android:id="@+id/cardDetails"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="@id/bankName"
+                app:layout_constraintStart_toStartOf="@id/bankName"
+                app:layout_constraintTop_toBottomOf="@id/bankName"
+                tools:text="VISA *000" />
+
+            <View
+                android:id="@+id/divider1"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="@dimen/padding24"
+                android:layout_marginTop="@dimen/padding8"
+                android:layout_marginEnd="@dimen/padding24"
+                android:background="@color/grey_dark"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/changeCard" />
+
+            <TextView
+                android:id="@+id/subtitle2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/padding24"
+                android:layout_marginTop="@dimen/padding24"
+                android:layout_marginEnd="@dimen/padding24"
+                android:text="@string/feature_sendmoney_amount_subtitle2"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider1" />
+
+            <TextView
+                android:id="@+id/balanceTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/padding24"
+                android:text="@string/feature_sendmoney_amount_balance_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/subtitle2" />
+
+            <TextView
+                android:id="@+id/balance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/feature_sendmoney_amount_balance_mock"
+                app:layout_constraintEnd_toEndOf="@id/balanceTitle"
+                app:layout_constraintTop_toBottomOf="@id/balanceTitle" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/padding24"
+                android:text="@string/feature_sendmoney_amount_destination_name_mock"
+                android:textSize="@dimen/textSize20"
+                app:layout_constraintBaseline_toBaselineOf="@id/balance"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="@dimen/padding24"
+                android:layout_marginTop="@dimen/padding8"
+                android:layout_marginEnd="@dimen/padding24"
+                android:background="@color/grey_dark"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/balance" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/grey_light"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/action"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_margin="@dimen/padding8"
+            android:text="@string/feature_sendmoney_amount_action" />
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

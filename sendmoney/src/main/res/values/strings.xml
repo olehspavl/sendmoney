@@ -14,4 +14,15 @@
     <string name="feature_sendmoney_card_number_error">Please enter a valid card number</string>
     <string name="feature_sendmoney_card_date_error">Enter correct date</string>
     <string name="feature_sendmoney_card_cvv_error">Please enter full details</string>
+    <string name="feature_sendmoney_amount_desc">How much do you want to add?</string>
+    <string name="feature_sendmoney_amount_hint">0.00</string>
+    <string name="feature_sendmoney_amount_currency">GBP</string>
+    <string name="feature_sendmoney_amount_subtitle1">Add money with</string>
+    <string name="feature_sendmoney_amount_change">Change</string>
+    <string name="feature_sendmoney_amount_bank_name_mock">STARLING BANK</string>
+    <string name="feature_sendmoney_amount_subtitle2">Add money to</string>
+    <string name="feature_sendmoney_amount_balance_title">Balance</string>
+    <string name="feature_sendmoney_amount_balance_mock">£1,200.00</string>
+    <string name="feature_sendmoney_amount_destination_name_mock">Witty GBP</string>
+    <string name="feature_sendmoney_amount_action">Add money</string>
 </resources>

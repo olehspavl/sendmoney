@@ -1,4 +1,4 @@
-package com.sendmoney.sendmoney.carddetails
+package com.sendmoney.sendmoney
 
 import android.text.Editable
 import android.text.TextWatcher
@@ -7,9 +7,8 @@ import java.lang.ref.SoftReference
 
 abstract class SpecialSymbolWatcher(
     private val symbol: Char,
-    private val blockSize: Int,
     private val editText: SoftReference<EditText>,
-    private val watchers: SoftReference<List<TextWatcher>>
+    private val watchers: SoftReference<List<TextWatcher>> = SoftReference(emptyList())
 ) : TextWatcher {
     private var pointerPosition = 0
     private var erase = false
@@ -19,8 +18,9 @@ abstract class SpecialSymbolWatcher(
             return value
         }
 
+    abstract fun format(raw: String): String
+
     override fun afterTextChanged(input: Editable?) {
-        var formatted = ""
         var raw = if (erase) {
             input?.substring(0, pointerPosition - 1) + input?.substring(
                 pointerPosition
@@ -30,11 +30,7 @@ abstract class SpecialSymbolWatcher(
         }
         raw = raw.replace(symbol.toString(), "")
 
-        while (raw.length > blockSize) {
-            formatted += raw.substring(0 until blockSize) + symbol.toString()
-            raw = raw.substring(blockSize)
-        }
-        formatted += raw
+        val formatted = format(raw)
 
         pointerPosition += input?.let { formatted.length - input.length } ?: 0
         editText.get()?.run {
@@ -58,6 +54,8 @@ abstract class SpecialSymbolWatcher(
         }
     }
 
+    override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) = Unit
+
     private fun shouldErase(
         sourceText: CharSequence?,
         pointerPosition: Int,
@@ -65,28 +63,4 @@ abstract class SpecialSymbolWatcher(
     ) = newTextLength == 0 &&
             sourceText?.isNotBlank() == true &&
             sourceText[pointerPosition] == symbol
-
-    override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) = Unit
-}
-
-class DateSplashWatcher(
-    editText: SoftReference<EditText>,
-    watchers: SoftReference<List<TextWatcher>>
-) : SpecialSymbolWatcher(SPECIAL_SYMBOL, BLOCK_SIZE, editText, watchers) {
-    companion object {
-        private const val SPECIAL_SYMBOL = '/'
-        const val specialSymbol = SPECIAL_SYMBOL.toString()
-        private const val BLOCK_SIZE = 2
-    }
-}
-
-class NumberSpaceWatcher(
-    editText: SoftReference<EditText>,
-    watchers: SoftReference<List<TextWatcher>>
-) : SpecialSymbolWatcher(SPECIAL_SYMBOL, BLOCK_SIZE, editText, watchers) {
-    companion object {
-        private const val SPECIAL_SYMBOL = ' '
-        const val specialSymbol = SPECIAL_SYMBOL.toString()
-        private const val BLOCK_SIZE = 4
-    }
 }

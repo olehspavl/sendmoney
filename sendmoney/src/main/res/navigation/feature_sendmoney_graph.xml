@@ -29,5 +29,19 @@
         android:id="@+id/feature_sendmoney_carddetailsfragment"
         android:name="com.sendmoney.sendmoney.carddetails.CardDetailsFragment"
         android:label="CardDetailsFragment"
-        tools:layout="@layout/feature_sendmoney_carddetails_fragment" />
+        tools:layout="@layout/feature_sendmoney_carddetails_fragment" >
+        <action
+            android:id="@+id/to_amount"
+            app:destination="@id/feature_sendmoney_amountfragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/feature_sendmoney_amountfragment"
+        android:name="com.sendmoney.sendmoney.amount.AmountFragment"
+        android:label="AmountFragment"
+        tools:layout="@layout/feature_sendmoney_amount_fragment" >
+        <action
+            android:id="@+id/to_options"
+            app:destination="@id/feature_sendmoney_addmoneyoptionsfragment" />
+    </fragment>
 </navigation>

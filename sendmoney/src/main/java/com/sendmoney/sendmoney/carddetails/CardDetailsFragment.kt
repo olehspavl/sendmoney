@@ -5,6 +5,7 @@ import android.view.View
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.sendmoney.sendmoney.R
 import com.sendmoney.sendmoney.SendMoneyViewModel
 import com.sendmoney.sendmoney.databinding.FeatureSendmoneyCarddetailsFragmentBinding
@@ -111,5 +112,7 @@ class CardDetailsFragment : Fragment(R.layout.feature_sendmoney_carddetails_frag
         }
     }
 
-    private fun navigateNext() = Unit
+    private fun navigateNext() {
+        findNavController().navigate(CardDetailsFragmentDirections.toAmount())
+    }
 }
