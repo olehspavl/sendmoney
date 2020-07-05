@@ -1,6 +1,7 @@
 package com.sendmoney.sendmoney
 
 import androidx.annotation.DrawableRes
+import com.sendmoney.sendmoney.carddetails.NumberSpaceWatcher
 import java.util.regex.Pattern
 
 enum class CardType {
@@ -20,10 +21,13 @@ enum class CardType {
         private const val REGEX_MASTERCARD =
             "^5[1-5][0-9]{5,}|222[1-9][0-9]{3,}|22[3-9][0-9]{4,}|2[3-6][0-9]{5,}|27[01][0-9]{4,}|2720[0-9]{3,}\$"
 
-        fun from(text: CharSequence) = when {
-            Pattern.compile(REGEX_VISA).matcher(text).find() -> VISA
-            Pattern.compile(REGEX_MASTERCARD).matcher(text).find() -> MASTERCARD
-            else -> OTHER
-        }
+        fun from(text: CharSequence) =
+            text.toString().replace(NumberSpaceWatcher.specialSymbol, "").let {
+                when {
+                    Pattern.compile(REGEX_VISA).matcher(it).find() -> VISA
+                    Pattern.compile(REGEX_MASTERCARD).matcher(it).find() -> MASTERCARD
+                    else -> OTHER
+                }
+            }
     }
 }

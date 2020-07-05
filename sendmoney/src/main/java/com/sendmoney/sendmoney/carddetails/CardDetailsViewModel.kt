@@ -35,9 +35,7 @@ class CardDetailsViewModel : ViewModel() {
 
     private fun validateCardNumber(text: CharSequence) {
         cardNumberState.value = if (text.length == CARD_NUMBER_LENGTH) {
-            val cardType = CardType.from(
-                text.toString().replace(NumberSpaceWatcher.specialSymbol, "")
-            )
+            val cardType = CardType.from(text)
             CardNumberState.Neutral(cardType.toIconRes())
         } else {
             CardNumberState.Error(R.string.feature_sendmoney_card_number_error)
