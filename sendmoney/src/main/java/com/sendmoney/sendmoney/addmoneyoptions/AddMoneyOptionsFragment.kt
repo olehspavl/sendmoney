@@ -7,9 +7,10 @@ import androidx.navigation.fragment.findNavController
 import com.sendmoney.sendmoney.R
 import com.sendmoney.sendmoney.databinding.FeatureSendmoneyAddmoneyoptionsFragmentBinding
 import com.sendmoney.sendmoney.loadModule
+import com.sendmoney.utils.viewBinding
 
 class AddMoneyOptionsFragment : Fragment(R.layout.feature_sendmoney_addmoneyoptions_fragment) {
-    private lateinit var binding: FeatureSendmoneyAddmoneyoptionsFragmentBinding
+    private val binding by viewBinding(FeatureSendmoneyAddmoneyoptionsFragmentBinding::bind)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,16 +19,12 @@ class AddMoneyOptionsFragment : Fragment(R.layout.feature_sendmoney_addmoneyopti
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = FeatureSendmoneyAddmoneyoptionsFragmentBinding.inflate(layoutInflater)
-        view.findViewById<View>(R.id.debitCreditCard).setOnClickListener {
-            findNavController().navigate(AddMoneyOptionsFragmentDirections.toCarddetails())
-        }
         initUI()
     }
 
     private fun initUI() {
-//        binding.debitCreditCard.setOnClickListener {
-//            findNavController().navigate()
-//        }
+        binding.debitCreditCard.setOnClickListener {
+            findNavController().navigate(AddMoneyOptionsFragmentDirections.toCarddetails())
+        }
     }
 }
