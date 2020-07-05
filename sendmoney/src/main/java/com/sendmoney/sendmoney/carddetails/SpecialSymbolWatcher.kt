@@ -40,20 +40,22 @@ abstract class SpecialSymbolWatcher(
         editText.get()?.run {
             removeTextChangedListener(this@SpecialSymbolWatcher)
             watchers.get()?.forEach {
-                removeTextChangedListener(it)
+                addTextChangedListener(it)
             }
             setText(formatted)
             setSelection(if (pointerPosition >= 0) pointerPosition else 0)
             addTextChangedListener(this@SpecialSymbolWatcher)
-            watchers.get()?.forEach {
-                addTextChangedListener(it)
-            }
         }
     }
 
     override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
         pointerPosition = start + after
         erase = shouldErase(s, start, after)
+        editText.get()?.run {
+            watchers.get()?.forEach {
+                removeTextChangedListener(it)
+            }
+        }
     }
 
     private fun shouldErase(
@@ -70,7 +72,7 @@ abstract class SpecialSymbolWatcher(
 class DateSplashWatcher(
     editText: SoftReference<EditText>,
     watchers: SoftReference<List<TextWatcher>>
-    ) : SpecialSymbolWatcher(SPECIAL_SYMBOL, BLOCK_SIZE, editText, watchers) {
+) : SpecialSymbolWatcher(SPECIAL_SYMBOL, BLOCK_SIZE, editText, watchers) {
     companion object {
         private const val SPECIAL_SYMBOL = '/'
         const val specialSymbol = SPECIAL_SYMBOL.toString()
@@ -84,6 +86,7 @@ class NumberSpaceWatcher(
 ) : SpecialSymbolWatcher(SPECIAL_SYMBOL, BLOCK_SIZE, editText, watchers) {
     companion object {
         private const val SPECIAL_SYMBOL = ' '
+        const val specialSymbol = SPECIAL_SYMBOL.toString()
         private const val BLOCK_SIZE = 4
     }
 }

@@ -7,7 +7,7 @@ import java.util.*
 
 class CardDetailsViewModel : ViewModel() {
 
-    val cardNumberState = MutableLiveData<EditTextState>()
+    val cardNumberState = MutableLiveData<CardNumberState>()
     val cardDateState = MutableLiveData<EditTextState>()
     val cardCvvState = MutableLiveData<EditTextState>()
     val screenState = MutableLiveData<CardDetailsState>()
@@ -21,9 +21,19 @@ class CardDetailsViewModel : ViewModel() {
     }
 
     fun validateCardNumber(text: CharSequence) {
-        cardNumberState.value =
-            if (text.length == CARD_NUMBER_LENGTH) EditTextState.Neutral
-            else EditTextState.Error(R.string.feature_sendmoney_card_number_error)
+        cardNumberState.value = if (text.length == CARD_NUMBER_LENGTH) {
+            val cardType = CardType.from(
+                text.toString().replace(NumberSpaceWatcher.specialSymbol, "")
+            )
+            val typeIcon = when (cardType) {
+                CardType.OTHER -> R.drawable.feature_sendmoney_ic_credit_card_black_24
+                CardType.VISA -> R.drawable.feature_sendmoney_ic_visa
+                CardType.MASTERCARD -> R.drawable.feature_sendmoney_ic_mastercard
+            }
+            CardNumberState.Neutral(typeIcon)
+        } else {
+            CardNumberState.Error(R.string.feature_sendmoney_card_number_error)
+        }
     }
 
     fun validateCardCvv(text: CharSequence) {
@@ -57,7 +67,7 @@ class CardDetailsViewModel : ViewModel() {
         validateCardNumber(number)
         validateCardDate(date)
         validateCardCvv(cvv)
-        val isNumberNotValid = cardNumberState.value is EditTextState.Error
+        val isNumberNotValid = cardNumberState.value is CardNumberState.Error
         val isDateNotValid = cardDateState.value is EditTextState.Error
         val isCvvNotValid = cardCvvState.value is EditTextState.Error
         if (!isNumberNotValid && !isDateNotValid && !isCvvNotValid) {

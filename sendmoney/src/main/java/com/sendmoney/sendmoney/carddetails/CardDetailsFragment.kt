@@ -49,8 +49,11 @@ class CardDetailsFragment : Fragment(R.layout.feature_sendmoney_carddetails_frag
     private fun initObservers() {
         viewModel.cardNumberState.observe(viewLifecycleOwner, Observer {
             when (it) {
-                EditTextState.Neutral -> binding.cardNumberLayout.error = ""
-                is EditTextState.Error -> binding.cardNumberLayout.error =
+                is CardNumberState.Neutral -> {
+                    binding.cardNumberLayout.error = ""
+                    binding.cardType.setImageResource(it.typeIconRes)
+                }
+                is CardNumberState.Error -> binding.cardNumberLayout.error =
                     getString(it.messageRes)
             }
         })
