@@ -193,6 +193,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_margin="@dimen/padding8"
-            android:text="@string/feature_sendmoney_amount_action" />
+            android:text="@string/feature_sendmoney_amount_action"
+            android:enabled="false"/>
     </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

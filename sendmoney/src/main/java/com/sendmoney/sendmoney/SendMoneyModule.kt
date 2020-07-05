@@ -1,5 +1,6 @@
 package com.sendmoney.sendmoney
 
+import com.sendmoney.sendmoney.amount.AmountViewModel
 import com.sendmoney.sendmoney.carddetails.CardDetailsViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.context.loadKoinModules
@@ -11,4 +12,5 @@ fun loadModule() = loadModule
 val sendMoneyModule = module {
     viewModel { SendMoneyViewModel() }
     viewModel { CardDetailsViewModel() }
+    viewModel { AmountViewModel() }
 }

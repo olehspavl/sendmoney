@@ -15,4 +15,6 @@ class SendMoneyViewModel : ViewModel() {
             }
         }
     private var _cardCvv: ByteArray = byteArrayOf()
+
+    var amount: String? = null
 }

@@ -1,18 +1,16 @@
-package com.sendmoney.sendmoney.main
+package com.sendmoney.sendmoney.verification
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import com.sendmoney.sendmoney.R
-import com.sendmoney.sendmoney.databinding.FeatureSendmoneyMainFragmentBinding
+import com.sendmoney.sendmoney.databinding.FeatureSendmoneyVerificationFragmentBinding
 import com.sendmoney.sendmoney.loadModule
 import com.sendmoney.utils.viewBinding
 
-class MainFragment : Fragment(R.layout.feature_sendmoney_main_fragment) {
+class VerificationFragment : Fragment(R.layout.feature_sendmoney_verification_fragment) {
 
-    private val binding by viewBinding(FeatureSendmoneyMainFragmentBinding::bind)
+    private val binding by viewBinding(FeatureSendmoneyVerificationFragmentBinding::bind)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,8 +23,6 @@ class MainFragment : Fragment(R.layout.feature_sendmoney_main_fragment) {
     }
 
     private fun initUI() {
-        binding.action.setOnClickListener {
-            findNavController().navigate(MainFragmentDirections.toAmount())
-        }
+        binding.action.setOnClickListener {}
     }
 }

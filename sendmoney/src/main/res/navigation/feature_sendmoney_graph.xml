@@ -13,6 +13,9 @@
         <action
             android:id="@+id/to_options"
             app:destination="@id/feature_sendmoney_addmoneyoptionsfragment" />
+        <action
+            android:id="@+id/to_amount"
+            app:destination="@id/feature_sendmoney_amountfragment" />
     </fragment>
 
     <fragment
@@ -43,5 +46,14 @@
         <action
             android:id="@+id/to_options"
             app:destination="@id/feature_sendmoney_addmoneyoptionsfragment" />
+        <action
+            android:id="@+id/to_verification"
+            app:destination="@id/feature_sendmoney_verificationfragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/feature_sendmoney_verificationfragment"
+        android:name="com.sendmoney.sendmoney.verification.VerificationFragment"
+        android:label="VerificationFragment"
+        tools:layout="@layout/feature_sendmoney_verification_fragment" />
 </navigation>

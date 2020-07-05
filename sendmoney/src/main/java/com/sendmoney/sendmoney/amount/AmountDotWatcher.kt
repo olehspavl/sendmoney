@@ -1,12 +1,14 @@
 package com.sendmoney.sendmoney.amount
 
+import android.text.TextWatcher
 import android.widget.EditText
 import com.sendmoney.sendmoney.SpecialSymbolWatcher
 import java.lang.ref.SoftReference
 
 class AmountDotWatcher(
-    editText: SoftReference<EditText>
-) : SpecialSymbolWatcher(SPECIAL_SYMBOL, editText) {
+    editText: SoftReference<EditText>,
+    watchers: SoftReference<List<TextWatcher>>
+) : SpecialSymbolWatcher(SPECIAL_SYMBOL, editText, watchers) {
     override fun format(raw: String): String {
         val sb = StringBuilder(raw)
         if (raw.length < 3) {

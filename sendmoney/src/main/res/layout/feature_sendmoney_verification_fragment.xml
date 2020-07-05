@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".main.MainFragment">
+    tools:context=".verification.VerificationFragment">
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/action"
@@ -14,8 +14,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:icon="@drawable/feature_sendmoney_ic_add_white_18"
-        app:iconGravity="textStart"
-        app:iconTint="@color/color_on_primary_pressed"
-        android:text="@string/feature_sendmoney_add"/>
+        android:text="@string/feature_sendmoney_verification_action"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
