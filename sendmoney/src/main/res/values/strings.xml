@@ -4,4 +4,10 @@
     <string name="feature_sendmoney_mock_text">MainFragment</string>
     <string name="feature_sendmoney_add_money_option_desc">Select how to add money</string>
     <string name="feature_sendmoney_option_debit_credit_card">Debit or credit card</string>
+    <string name="feature_sendmoney_card_desc1">Enter card details</string>
+    <string name="feature_sendmoney_card_desc2">This card must be in your name</string>
+    <string name="feature_sendmoney_card_number_hint">16 digit card number</string>
+    <string name="feature_sendmoney_card_date_hint">MM/YY</string>
+    <string name="feature_sendmoney_card_cvv_hint">CVV</string>
+    <string name="feature_sendmoney_card_action">Continue</string>
 </resources>
