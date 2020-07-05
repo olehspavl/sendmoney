@@ -39,7 +39,7 @@ abstract class SpecialSymbolWatcher(
         editText.get()?.run {
             removeTextChangedListener(this@SpecialSymbolWatcher)
             setText(formatted)
-            setSelection(pointerPosition)
+            setSelection(if (pointerPosition >= 0) pointerPosition else 0)
             addTextChangedListener(this@SpecialSymbolWatcher)
         }
     }
@@ -65,6 +65,7 @@ class DateSplashWatcher(
 ) : SpecialSymbolWatcher(SPECIAL_SYMBOL, BLOCK_SIZE, editText) {
     companion object {
         private const val SPECIAL_SYMBOL = '/'
+        const val specialSymbol = SPECIAL_SYMBOL.toString()
         private const val BLOCK_SIZE = 2
     }
 }

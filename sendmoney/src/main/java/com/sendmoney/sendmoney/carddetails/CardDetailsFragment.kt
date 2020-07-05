@@ -2,7 +2,7 @@ package com.sendmoney.sendmoney.carddetails
 
 import android.os.Bundle
 import android.view.View
-import androidx.core.widget.doOnTextChanged
+import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.sendmoney.sendmoney.R
@@ -40,6 +40,13 @@ class CardDetailsFragment : Fragment(R.layout.feature_sendmoney_carddetails_frag
                     getString(it.messageRes)
             }
         })
+        viewModel.cardDateState.observe(viewLifecycleOwner, Observer {
+            when (it) {
+                EditTextState.Neutral -> binding.cardDateLayout.error = ""
+                is EditTextState.Error -> binding.cardDateLayout.error =
+                    getString(it.messageRes)
+            }
+        })
     }
 
     private fun loadData() = Unit
@@ -47,8 +54,9 @@ class CardDetailsFragment : Fragment(R.layout.feature_sendmoney_carddetails_frag
     private fun initUI() {
         binding.action.setOnClickListener {
             viewModel.validateCardNumber(binding.cardNumber.text.toString())
+            viewModel.validateCardDate(binding.cardDate.text.toString())
         }
-        binding.cardNumber.doOnTextChanged { text, _, _, _ ->
+        binding.cardNumber.doAfterTextChanged { text ->
             viewModel.onCardNumberChanged(text)
         }
         binding.cardNumber.apply {
@@ -56,6 +64,9 @@ class CardDetailsFragment : Fragment(R.layout.feature_sendmoney_carddetails_frag
         }
         binding.cardDate.apply {
             addTextChangedListener(DateSplashWatcher(SoftReference(this)))
+        }
+        binding.cardDate.doAfterTextChanged { text ->
+            viewModel.onCardDateChanged(text)
         }
     }
 }
