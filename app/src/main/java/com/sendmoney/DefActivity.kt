@@ -9,7 +9,7 @@ class DefActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_def)
 
-        supportFragmentManager.findFragmentById(R.id.main_nav_host_fragment)?.let { fragment ->
+        supportFragmentManager.findFragmentById(R.id.main_nav_host_fragment)?.let { _ ->
             findNavController(R.id.main_nav_host_fragment).apply {
                 graph = navInflater.inflate(R.navigation.main_graph)
                 navigate(R.id.to_sendmoney)

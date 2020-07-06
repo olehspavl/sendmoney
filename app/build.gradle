@@ -14,8 +14,8 @@ android {
         minSdkVersion sdk.min
         targetSdkVersion sdk.target
 
-        versionCode 1
-        versionName "1.0"
+        versionCode names.versionCode
+        versionName names.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
