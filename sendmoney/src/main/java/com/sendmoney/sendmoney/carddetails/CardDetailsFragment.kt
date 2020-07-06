@@ -88,6 +88,9 @@ class CardDetailsFragment : Fragment(R.layout.feature_sendmoney_carddetails_frag
                 binding.cardCvv.text.toString()
             )
         }
+        binding.cardCvv.doAfterTextChanged { text ->
+            viewModel.onCardCvvChanged(text)
+        }
         val numberValidation = binding.cardNumber.doAfterTextChanged { text ->
             viewModel.onCardNumberChanged(text)
         }

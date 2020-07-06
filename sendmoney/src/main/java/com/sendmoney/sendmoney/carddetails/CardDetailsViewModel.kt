@@ -21,6 +21,10 @@ class CardDetailsViewModel : ViewModel() {
         if (text?.length == CARD_DATE_LENGTH) validateCardDate(text)
     }
 
+    fun onCardCvvChanged(text: CharSequence?) {
+        if (text?.length == CARD_CVV_LENGTH) validateCardCvv(text)
+    }
+
     fun validateAll(number: String, date: String, cvv: String) {
         validateCardNumber(number)
         validateCardDate(date)
